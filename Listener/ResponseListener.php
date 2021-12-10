@@ -112,10 +112,4 @@ class ResponseListener implements EventSubscriberInterface
     }
 }
 
-if (!\class_exists(KernelResponseEvent::class)) {
-    if (\class_exists(ResponseEvent::class)) {
-        \class_alias(ResponseEvent::class, KernelResponseEvent::class);
-    } else {
-        \class_alias(FilterResponseEvent::class, KernelResponseEvent::class);
-    }
-}
+\class_alias(FilterResponseEvent::class, KernelResponseEvent::class);

@@ -116,10 +116,4 @@ class RequestListener implements EventSubscriberInterface
     }
 }
 
-if (!\class_exists(KernelRequestEvent::class)) {
-    if (\class_exists(RequestEvent::class)) {
-        \class_alias(RequestEvent::class, KernelRequestEvent::class);
-    } else {
-        \class_alias(GetResponseEvent::class, KernelRequestEvent::class);
-    }
-}
+\class_alias(GetResponseEvent::class, KernelRequestEvent::class);
