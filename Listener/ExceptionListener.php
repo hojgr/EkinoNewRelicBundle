@@ -51,10 +51,4 @@ class ExceptionListener implements EventSubscriberInterface
     }
 }
 
-if (!\class_exists(KernelExceptionEvent::class)) {
-    if (\class_exists(ExceptionEvent::class)) {
-        \class_alias(ExceptionEvent::class, KernelExceptionEvent::class);
-    } else {
-        \class_alias(GetResponseForExceptionEvent::class, KernelExceptionEvent::class);
-    }
-}
+\class_alias(GetResponseForExceptionEvent::class, KernelExceptionEvent::class);
